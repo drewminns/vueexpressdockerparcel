@@ -1,12 +1,12 @@
 FROM node:9.11.2-alpine
 
-WORKDIR /usr/app/client
+WORKDIR /usr/src/client
 
 COPY package.json .
 
-RUN npm install \
+RUN npm install -yq\
   && npm cache clean --force \
-  && mv /usr/app/client/node_modules /node_modules
+  && mv /usr/src/client/node_modules /node_modules
 
 COPY . .
 
